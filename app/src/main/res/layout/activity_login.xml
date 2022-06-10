@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/slate_900"
+    tools:context=".Login">
+
+
+    <!--    MAIN CONTAINER      -->
+    <!--    TOP CONTENT     -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_above="@+id/midContainer"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_login"
+            android:textSize="30sp"
+            android:fontFamily="@font/roboto_black"
+            android:textColor="@color/slate_100"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/subtitle_login"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/slate_400"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+    <!--        MID CONTENT     -->
+    <LinearLayout
+        android:id="@+id/midContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/txtLoginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/input_rounded"
+            android:drawableStart="@drawable/ic_baseline_alternate_email_24"
+            android:drawablePadding="20dp"
+            android:drawableTint="@color/slate_400"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/txt_email_hint"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/slate_300"
+            android:textColorHighlight="@color/slate_400"
+            android:textColorHint="@color/slate_400" />
+        <TextView
+            android:id="@+id/tvLoginEmailError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/red_600"
+            android:layout_marginTop="5dp"
+            />
+        <EditText
+            android:id="@+id/txtLoginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:autofillHints="password"
+            android:background="@drawable/input_rounded"
+            android:drawableStart="@drawable/ic_baseline_key_24"
+            android:drawableEnd="@drawable/ic_baseline_visibility_off_24"
+            android:drawablePadding="20dp"
+            android:elevation="4dp"
+            android:longClickable="false"
+            android:fontFamily="@font/roboto_regular"
+            android:foregroundTint="@color/sky_600"
+            android:hint="@string/txt_password_hint"
+            android:inputType="textPassword"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/slate_300"
+            android:textColorHint="@color/slate_400" />
+        <TextView
+            android:id="@+id/tvLoginPasswordError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/red_600"
+            android:layout_marginTop="5dp"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cbRememberMe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Recordarme"
+                    android:textColor="@color/sky_600" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnLoginForgotPasswod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/roboto_bold"
+                android:text="¿Olvidaste tu contraseña?"
+                android:textColor="@color/sky_600" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/sky_500"
+                android:drawableEnd="@drawable/ic_baseline_arrow_right_alt_24"
+                android:elevation="4dp"
+                android:fontFamily="@font/roboto_bold"
+                android:padding="10dp"
+                android:text="@string/btn_text"
+                android:textColor="@color/slate_50"
+                app:cornerRadius="5dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

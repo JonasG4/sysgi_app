@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/slate_800"
+    tools:context=".employeeIU.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/slate_700"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tvFgHomeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="[NOMBRE]"
+                android:textAlignment="center"
+                android:textColor="@color/slate_200"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/tvFgHomeEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvFgHomeName"
+                android:fontFamily="@font/roboto_regular"
+                android:text="[EMAIL]"
+                android:textAlignment="center"
+                android:textColor="@color/slate_400" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/topMidContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topContent"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/input_roundedv2"
+                android:drawableStart="@drawable/ic_baseline_search_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/slate_400"
+                android:hint="Buscar..."
+                android:elevation="4dp"
+                android:inputType="textFilter"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textColor="@color/slate_400"
+                android:textColorHint="@color/slate_400" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Buscar"
+                android:textSize="12sp"
+                android:layout_weight="3"
+                android:backgroundTint="@color/sky_600"
+                />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_listIncidents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topMidContent"
+            android:padding="20dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No posee ningun incidente reportado."
+            android:textColor="@color/slate_200"
+            android:textAlignment="center"
+            android:layout_marginBottom="20dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cantidad: 0"
+                android:textColor="@color/slate_400"
+                android:layout_alignParentStart="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>
