@@ -27,24 +27,26 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ForgotPassword extends AppCompatActivity {
+public class ResetPassword extends AppCompatActivity {
 
-    Button btnContinue;
+    EditText txtNewPassword, txtConfirmPassword;
+    Button btnUpdatePassword;
     LinearLayout btnBack;
-    EditText txtEmail;
-    TextView tvEmailError;
-    Configuration config = new Configuration();
-    String URL = config.urlUsuarios;
-
+    TextView tvNewPWError, tvConfirmPWError;
+    Configuration configuration = new Configuration();
+    String URL = configuration.urlUsuarios;
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password);
+        setContentView(R.layout.activity_reset_password);
 
-        btnContinue = findViewById(R.id.btnResetPWContinue);
-        btnBack = findViewById(R.id.btnFPWBack);
-        txtEmail = findViewById(R.id.txtResetPWEmail);
-        tvEmailError = findViewById(R.id.tvEmailResetPWError);
+        txtNewPassword = findViewById(R.id.txtNewPW);
+        txtConfirmPassword = findViewById(R.id.txtConfirmPW);
+        btnBack = findViewById(R.id.btnNewPWBack);
+        btnUpdatePassword = findViewById(R.id.btnUpdatePW);
+        tvNewPWError = findViewById(R.id.tvEmailNewPWError);
+        tvConfirmPWError = findViewById(R.id.tvConfirmPWError);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,29 +55,24 @@ public class ForgotPassword extends AppCompatActivity {
             }
         });
 
-        btnContinue.setOnClickListener(new View.OnClickListener() {
+        btnUpdatePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendEmailCode();
+                updatePassword();
             }
         });
-
     }
 
-    public void sendEmailCode(){
-        RequestQueue requestQueue = Volley.newRequestQueue(ForgotPassword.this);
+    public void updatePassword() {
+        RequestQueue requestQueue = Volley.newRequestQueue(ResetPassword.this);
         StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject result = new JSONObject(response);
-                    String codigo = result.getString("codigo");
 
-                    Intent window = new Intent(ForgotPassword.this, VerifyCode.class);
-                    window.putExtra("codigo", codigo);
-                    window.putExtra("email", txtEmail.getText().toString());
-                    startActivity(window);
-
+                    startActivity(new Intent(ResetPassword.this, ResetPWSuccessful.class));
+                    finish();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -86,7 +83,6 @@ public class ForgotPassword extends AppCompatActivity {
                 if (error == null || error.networkResponse == null) {
                     return;
                 }
-
                 String body;
                 //get status code here
                 final String statusCode = String.valueOf(error.networkResponse.statusCode);
@@ -94,27 +90,50 @@ public class ForgotPassword extends AppCompatActivity {
                 try {
                     body = new String(error.networkResponse.data, "UTF-8");
                     JSONObject data = new JSONObject(body);
+                    JSONObject errors = data.getJSONObject("validationError");
 
-                    if (!data.isNull("validationError")) {
-                        tvEmailError.setText(data.getString("validationError"));
+                    if (!errors.isNull("newPassword")) {
+                        tvNewPWError.setText(errors.getString("newPassword"));
                     } else {
-                        tvEmailError.setText("");
+                        tvNewPWError.setText("");
+                    }
+
+                    if (!errors.isNull("confirmPassword")) {
+                        tvConfirmPWError.setText(errors.getString("confirmPassword"));
+                    } else {
+                        tvConfirmPWError.setText("");
+                    }
+
+                    if (!errors.isNull("email")) {
+                        Toast.makeText(ResetPassword.this, errors.getString("email"), Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (UnsupportedEncodingException | JSONException e) {
-                    Toast.makeText(ForgotPassword.this, "Err: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ResetPassword.this, "Err: " + e.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("action", "send_email_reset_password");
-                params.put("email", txtEmail.getText().toString());
+                params.put("action", "reset_password");
+                params.put("email", email);
+                params.put("newPassword", txtNewPassword.getText().toString());
+                params.put("confirmPassword", txtConfirmPassword.getText().toString());
                 return params;
             }
         };
         requestQueue.add(request);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Bundle extras = getIntent().getExtras();
+
+        if(extras != null){
+            email = extras.getString("email");
+        }
     }
 }

@@ -90,11 +90,15 @@ public class Login extends AppCompatActivity {
                     String nombre = user.getString("nombre");
                     String apellido = user.getString("apellido");
                     String email = user.getString("email");
-                    String rol = user.getString("nombre");
+                    String rol = user.getString("id_rol");
 
                     savedSession(id_usuario, nombre, apellido, email, rol, token);
 
+                    if (Integer.parseInt(rol) == 2) {
                         pushTo(PanelControl.class, true);
+                    } else if (Integer.parseInt(rol) == 1) {
+                        pushTo(MainActivity.class, true);
+                    }
 
 
                 } catch (Exception e) {
@@ -121,20 +125,16 @@ public class Login extends AppCompatActivity {
                         tvEmailError.setText(errors.getString("email"));
                     } else {
                         tvEmailError.setText("");
-
                         if (!errors.isNull("password")) {
                             tvPasswordError.setText(errors.getString("password"));
                         } else {
                             tvPasswordError.setText("");
                         }
                     }
-
                 } catch (UnsupportedEncodingException | JSONException e) {
                     Toast.makeText(Login.this, "Err: " + e.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
-
-
             }
         }) {
             @Override
@@ -184,7 +184,11 @@ public class Login extends AppCompatActivity {
 
     public void isAuth() {
         if (preferences.getString("token", null) != null) {
-            pushTo(MainActivity.class, true);
+            if (Integer.parseInt(preferences.getString("id_rol", null)) == 2) {
+                pushTo(PanelControl.class, true);
+            } else if (Integer.parseInt(preferences.getString("id_rol", null)) == 1) {
+                pushTo(MainActivity.class, true);
+            }
         }
     }
 

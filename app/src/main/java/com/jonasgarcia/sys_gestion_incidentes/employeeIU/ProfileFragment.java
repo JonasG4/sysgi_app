@@ -51,14 +51,11 @@ public class ProfileFragment extends Fragment {
 
     public void logout() {
         preferences.edit().clear().apply();
-        pushTo(Login.class, true);
+        pushTo(Login.class);
     }
 
-    public void pushTo(Class view, boolean setClose) {
+    public void pushTo(Class view) {
         startActivity(new Intent(this.getActivity(), view));
-        if (setClose) {
-            this.getActivity().finish();
-        }
     }
 
 }
