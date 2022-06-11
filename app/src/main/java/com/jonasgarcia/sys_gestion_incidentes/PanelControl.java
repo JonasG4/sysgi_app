@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.jonasgarcia.sys_gestion_incidentes.adminUI.DashboardFragment;
+import com.jonasgarcia.sys_gestion_incidentes.adminUI.HomeIncidents;
+import com.jonasgarcia.sys_gestion_incidentes.employeeIU.HomeFragment;
 import com.jonasgarcia.sys_gestion_incidentes.employeeIU.ProfileFragment;
 
 public class PanelControl extends AppCompatActivity {
@@ -27,6 +29,7 @@ public class PanelControl extends AppCompatActivity {
 
     DashboardFragment dashboardFragment = new DashboardFragment();
     ProfileFragment profileFragment = new ProfileFragment();
+    HomeIncidents homeIncidents = new HomeIncidents();
 
     BottomNavigationView nav;
     BottomSheetDialog bottomSheetDialog;
@@ -54,6 +57,9 @@ public class PanelControl extends AppCompatActivity {
                     return true;
                 case R.id.menuAdd:
                     modalMenu();
+                    return true;
+                case R.id.menuIncident:
+                    loadFragment(homeIncidents);
                     return true;
                 case R.id.menuProfile:
                     loadFragment(profileFragment);
