@@ -12,6 +12,8 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.jonasgarcia.sys_gestion_incidentes.adminUI.DashboardFragment;
+import com.jonasgarcia.sys_gestion_incidentes.adminUI.HomeIncidents;
+import com.jonasgarcia.sys_gestion_incidentes.employeeIU.HomeFragment;
 import com.jonasgarcia.sys_gestion_incidentes.employeeIU.ProfileFragment;
 
 public class PanelControl extends AppCompatActivity {
@@ -22,6 +24,7 @@ public class PanelControl extends AppCompatActivity {
 
     DashboardFragment dashboardFragment = new DashboardFragment();
     ProfileFragment profileFragment = new ProfileFragment();
+    HomeIncidents homeIncidents = new HomeIncidents();
 
     BottomNavigationView nav;
 
@@ -45,6 +48,9 @@ public class PanelControl extends AppCompatActivity {
             switch (item.getItemId()){
                 case R.id.menuDashboard:
                     loadFragment(dashboardFragment);
+                    return true;
+                case R.id.menuIncident:
+                    loadFragment(homeIncidents);
                     return true;
                 case R.id.menuProfile:
                     loadFragment(profileFragment);

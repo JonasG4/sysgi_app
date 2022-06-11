@@ -7,10 +7,9 @@
         />
 
     <item
-        android:id="@+id/menuAdd"
+        android:id="@+id/menuIncident"
         android:icon="@drawable/ic_baseline_add_24"
-        android:title="Agregar"
-        />
+        android:title="Incidentes" />
     <item
         android:id="@+id/menuProfile"
         android:title="Perfil"
