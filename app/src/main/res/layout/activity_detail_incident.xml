@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -27,13 +33,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="20dp"
-            android:text="[TIPO INCIDENTE]"
+            android:text="TIPO INCIDENTE"
             android:textColor="@color/slate_200"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/txtTipoIncident"
             android:layout_width="match_parent"
+            android:focusable="false"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:autofillHints="password"
@@ -56,13 +63,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="20dp"
-            android:text="[DESCRIPCION]"
+            android:text="DESCRIPCION"
             android:textColor="@color/slate_200"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/txtDescripcion"
             android:layout_width="match_parent"
+            android:focusable="false"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:autofillHints="password"
@@ -85,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="20dp"
-            android:text="[FECHA DE INGRESO]"
+            android:text="FECHA DE INGRESO"
             android:textColor="@color/slate_200"
             android:textSize="20sp" />
 
@@ -105,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="20dp"
-            android:text="[ESTADO]"
+            android:text="ESTADO"
             android:textColor="@color/slate_200"
             android:textSize="20sp" />
 
@@ -148,4 +156,5 @@
             app:cornerRadius="5dp" />
 
     </LinearLayout>
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
