@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/slate_900"
+    tools:context=".Login">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/imgIncident"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:maxHeight="200dp"
+            android:src="@drawable/closet" />
+
+        <TextView
+            android:id="@+id/detailTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="20dp"
+            android:text="[TIPO INCIDENTE]"
+            android:textColor="@color/slate_200"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txtTipoIncident"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:autofillHints="password"
+            android:background="@drawable/input_rounded"
+            android:drawablePadding="20dp"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:foregroundTint="@color/sky_600"
+            android:hint="[TIPO INCIDENTE]"
+            android:inputType="text"
+            android:longClickable="false"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/slate_300"
+            android:textColorHint="@color/slate_400" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="20dp"
+            android:text="[DESCRIPCION]"
+            android:textColor="@color/slate_200"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txtDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:autofillHints="password"
+            android:background="@drawable/input_rounded"
+            android:drawablePadding="20dp"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:foregroundTint="@color/sky_600"
+            android:hint="[DESCRIPCION]"
+            android:inputType="text"
+            android:longClickable="false"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/slate_300"
+            android:textColorHint="@color/slate_400" />
+
+        <TextView
+            android:id="@+id/fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="20dp"
+            android:text="[FECHA DE INGRESO]"
+            android:textColor="@color/slate_200"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/fechaIncident"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="10dp"
+            android:text="[6/11/2022]"
+            android:textColor="@color/slate_200"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="20dp"
+            android:text="[ESTADO]"
+            android:textColor="@color/slate_200"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/estado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Activo"
+                    android:textColor="@color/sky_600" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnNota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/sky_500"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="10dp"
+            android:text="@string/btn_nota"
+            android:textColor="@color/slate_50"
+            app:cornerRadius="5dp" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,6 +1,7 @@
 package com.jonasgarcia.sys_gestion_incidentes.adminUI;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -30,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
-public class HomeIncidents extends Fragment {
+public class HomeIncidents extends Fragment implements RecyclerViewInterface {
 
     SharedPreferences preferences;
     private ArrayList<Incidente> listIncidet;
@@ -55,7 +56,7 @@ public class HomeIncidents extends Fragment {
 
         llenarLista();
 
-        IncidentAdapter adapter = new IncidentAdapter(listIncidet);
+        IncidentAdapter adapter = new IncidentAdapter(listIncidet,this);
         recyclerView.setAdapter(adapter);
 
         return vista;
@@ -76,6 +77,19 @@ public class HomeIncidents extends Fragment {
         recyclerView = view.findViewById(R.id.rvIncidents);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(getContext(),DetailIncident.class);
+        intent.putExtra("tipo", listIncidet.get(position).getTipo());
+        intent.putExtra("descripcion", listIncidet.get(position).getDescripcion());
+        intent.putExtra("imagen", listIncidet.get(position).getImagen());
+        intent.putExtra("estado", listIncidet.get(position).getEstado());
+        intent.putExtra("fecha", listIncidet.get(position).getFechaString());
+        intent.putExtra("nota", listIncidet.get(position).getNota());
+
+        startActivity(intent);
     }
 
 //    private void loadIncidents() {
