@@ -54,10 +54,11 @@
 
                 <ImageView
                     android:id="@+id/imageIncident"
+                    android:src="@drawable/closet"
                     android:layout_width="150dp"
                     android:layout_height="100dp"
-                    android:maxHeight="100dp"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:maxHeight="100dp" />
             </RelativeLayout>
 
 
