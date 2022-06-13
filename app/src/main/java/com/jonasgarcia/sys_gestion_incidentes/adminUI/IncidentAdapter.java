@@ -15,17 +15,19 @@ import com.jonasgarcia.sys_gestion_incidentes.R;
 import java.util.ArrayList;
 
 public class IncidentAdapter extends RecyclerView.Adapter<IncidentAdapter.ViewHolderData> {
+    private final RecyclerViewInterface recyclerViewInterface;
     ArrayList<Incidente> listIncident;
 
-    public IncidentAdapter(ArrayList<Incidente> listIncident) {
+    public IncidentAdapter(ArrayList<Incidente> listIncident, RecyclerViewInterface recyclerViewInterface) {
         this.listIncident = listIncident;
+        this.recyclerViewInterface = recyclerViewInterface;
     }
 
     @NonNull
     @Override
     public ViewHolderData onCreateViewHolder( ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_incident,null,false);
-        return new ViewHolderData(view);
+        return new ViewHolderData(view,recyclerViewInterface);
     }
 
     @Override
@@ -41,16 +43,28 @@ public class IncidentAdapter extends RecyclerView.Adapter<IncidentAdapter.ViewHo
         return listIncident.size();
     }
 
-    public class ViewHolderData extends RecyclerView.ViewHolder {
+    public static class ViewHolderData extends RecyclerView.ViewHolder {
         TextView titleIncident, descriptionIncident, stateIncident;
         ImageView imageIncident;
 
-        public ViewHolderData(@NonNull View itemView) {
+        public ViewHolderData(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
             titleIncident = itemView.findViewById(R.id.titleIncident);
             descriptionIncident = itemView.findViewById(R.id.descriptionIncident);
             stateIncident = itemView.findViewById(R.id.stateIncident);
             imageIncident = itemView.findViewById(R.id.imageIncident);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(recyclerViewInterface != null) {
+                        int pos = getAdapterPosition();
+                        if(pos != RecyclerView.NO_POSITION) {
+                            recyclerViewInterface.onItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 }

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Sys_gestion_incidentes"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".adminUI.DetailIncident"
+            android:exported="false" />
+        <activity
             android:name=".PanelControl"
             android:exported="false" />
         <activity
