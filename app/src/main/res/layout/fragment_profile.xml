@@ -13,28 +13,6 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/btnFPWBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_baseline_keyboard_backspace_24" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Regresar"
-                android:textColor="@color/sky_600"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -66,62 +44,70 @@
             android:textColor="@color/slate_200"
             android:textSize="20sp" />
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <Button
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/slate_700"
+                android:drawableEnd="@drawable/ic_angle_right_solid"
+                android:drawableTint="@color/slate_200"
+                android:elevation="0dp"
+                android:fontFamily="@font/roboto_bold"
+                android:padding="10dp"
+                android:text="Editar mi perfil"
+                android:textAlignment="textStart"
+                android:textColor="@color/slate_200"
+                android:textSize="12sp" />
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/slate_700"
-                    android:drawableEnd="@drawable/ic_angle_right_solid"
-                    android:drawableTint="@color/slate_200"
-                    android:elevation="0dp"
-                    android:padding="10dp"
-                    android:text="Editar mi perfil"
-                    android:textAlignment="textStart" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/slate_700"
+                android:drawableEnd="@drawable/ic_angle_right_solid"
+                android:drawableTint="@color/slate_200"
+                android:elevation="0dp"
+                android:fontFamily="@font/roboto_bold"
+                android:padding="10dp"
+                android:text="Cambiar contraseña"
+                android:textAlignment="textStart"
+                android:textColor="@color/slate_200"
+                android:textSize="12sp" />
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/slate_700"
-                    android:drawableEnd="@drawable/ic_angle_right_solid"
-                    android:drawableTint="@color/slate_200"
-                    android:elevation="0dp"
-                    android:padding="10dp"
-                    android:text="Cambiar contraseña"
-                    android:textAlignment="textStart" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/slate_700"
+                android:drawableEnd="@drawable/ic_angle_right_solid"
+                android:drawableTint="@color/slate_200"
+                android:elevation="0dp"
+                android:fontFamily="@font/roboto_bold"
+                android:padding="10dp"
+                android:text="Eliminar mi cuenta"
+                android:textAlignment="textStart"
+                android:textColor="@color/slate_200"
+                android:textSize="12sp" />
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/slate_700"
-                    android:drawableEnd="@drawable/ic_angle_right_solid"
-                    android:drawableTint="@color/slate_200"
-                    android:elevation="0dp"
-                    android:padding="10dp"
-                    android:text="Eliminar mi cuenta"
-                    android:textAlignment="textStart" />
-
-            </LinearLayout>
-                <Button
-                    android:id="@+id/btnLogout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/red_600"
-                    android:drawableEnd="@drawable/ic_baseline_power_settings_new_24"
-                    android:drawableTint="@color/slate_200"
-                    android:elevation="0dp"
-                    android:padding="10dp"
-                    android:layout_alignParentBottom="true"
-                    android:text="Cerrar sesión" />
-        </RelativeLayout>
+            <Button
+                android:layout_marginTop="20dp"
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:backgroundTint="@color/red_600"
+                android:drawableEnd="@drawable/ic_baseline_power_settings_new_24"
+                android:drawableTint="@color/slate_200"
+                android:elevation="0dp"
+                android:fontFamily="@font/roboto_bold"
+                android:padding="10dp"
+                android:text="Cerrar sesión"
+                android:textColor="@color/slate_200"
+                android:textSize="12sp" />
+        </LinearLayout>
 
 
     </LinearLayout>
