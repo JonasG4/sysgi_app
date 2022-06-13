@@ -40,20 +40,21 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            >
 
             <LinearLayout
                 android:id="@+id/ly1"
                 android:layout_width="180dp"
                 android:layout_height="100dp"
-                android:layout_marginVertical="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="5dp"
                 android:background="@drawable/container_rounded"
-
+                android:backgroundTint="@color/rose_500"
                 android:elevation="8dp"
                 android:orientation="horizontal"
-                android:padding="20dp">
+                android:padding="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -67,11 +68,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/roboto_bold"
-                    android:gravity="center"
-                    android:text="Usuarios \n Registrados"
+                    android:fontFamily="@font/roboto_black"
+                    android:gravity="center_vertical|end"
+                    android:text="Administradores Registrados"
                     android:textColor="@color/slate_200"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -79,12 +80,11 @@
                 android:id="@+id/ly2"
                 android:layout_width="180dp"
                 android:layout_height="100dp"
-                android:layout_marginVertical="20dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="20dp"
                 android:layout_toEndOf="@id/ly1"
                 android:background="@drawable/container_rounded"
-                android:backgroundTint="@color/red_500"
+                android:backgroundTint="@color/violet_500"
                 android:elevation="8dp"
                 android:orientation="horizontal"
                 android:padding="20dp">
@@ -102,42 +102,85 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/roboto_bold"
-                    android:gravity="center"
-                    android:text="Nuevos \n reportes"
-
+                    android:gravity="center_vertical|end"
+                    android:text="Empleados registrados"
                     android:textColor="@color/slate_200"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            >
 
             <LinearLayout
-                android:id="@+id/lyIncident"
+                android:id="@+id/ly3"
                 android:layout_width="180dp"
                 android:layout_height="100dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginEnd="5dp"
                 android:background="@drawable/container_rounded"
+                android:backgroundTint="@color/cyan_500"
+                android:elevation="8dp"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center"
+                    android:text="10"
+                    android:textColor="@color/slate_200"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_black"
+                    android:gravity="center_vertical|end"
+                    android:text="Nuevos \n Incidentes"
+                    android:textColor="@color/slate_200"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly4"
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@id/ly3"
+                android:background="@drawable/container_rounded"
+                android:backgroundTint="@color/violet_400"
+                android:elevation="8dp"
                 android:orientation="horizontal"
                 android:padding="20dp">
 
                 <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
-                    android:text="Ver incidencias"
+                    android:text="8"
+                    android:textColor="@color/slate_200"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center_vertical|end"
+                    android:text="Usuarios \n creados"
                     android:textColor="@color/slate_200"
                     android:textSize="18sp" />
+
             </LinearLayout>
         </RelativeLayout>
+
+
     </LinearLayout>
 </FrameLayout>

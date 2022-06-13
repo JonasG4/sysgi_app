@@ -15,6 +15,9 @@
         <activity
             android:name=".employeeIU.DetailIncidentEmployee"
             android:exported="false" />
+       <activity
+            android:name=".EditProfile"
+            android:exported="false" />
         <activity
             android:name=".AddUser"
             android:exported="false" />
