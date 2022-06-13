@@ -111,8 +111,7 @@ public class PanelControl extends AppCompatActivity {
         bottomSheetView.findViewById(R.id.btnAddUser).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pushTo(AddUser.class, true);
-//                Toast.makeText(PanelControl.this, "AAAAAAAAA", Toast.LENGTH_SHORT).show();
+                pushTo(AddUser.class, false);
                 bottomSheetDialog.dismiss();
             }
         });

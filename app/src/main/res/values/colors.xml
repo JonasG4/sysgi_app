@@ -99,4 +99,16 @@
     <color name="red_700">#b91c1c</color>
     <color name="red_800">#991b1b</color>
     <color name="red_900">#7f1d1d</color>
+
+    <!--    VIOLET  -->
+    <color name="violet_50">#f5f3ff</color>
+    <color name="violet_100">#ede9fe</color>
+    <color name="violet_200">#ddd6fe</color>
+    <color name="violet_300">#c4b5fd</color>
+    <color name="violet_400">#a78bfa</color>
+    <color name="violet_500">#8b5cf6</color>
+    <color name="violet_600">#7c3aed</color>
+    <color name="violet_700">#6d28d9</color>
+    <color name="violet_800">#5b21b6</color>
+    <color name="violet_900">#4c1d95</color>
 </resources>

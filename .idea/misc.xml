@@ -8,6 +8,7 @@
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/bottom_sheet_background.xml" value="0.1" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/button_login_rounded.xml" value="0.345" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/container_rounded.xml" value="0.345" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_angle_right_solid.xml" value="0.29" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_arrow_right_alt_24.xml" value="0.345" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_key_24.xml" value="0.1545" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_24.xml" value="0.1575" />
@@ -26,9 +27,11 @@
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/top_line_rounded.xml" value="0.3595" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_add_user.xml" value="0.33" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_dashboard.xml" value="0.3625" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_edit_profile.xml" value="0.3625" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_forgot_password.xml" value="0.3625" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_panelcontrol.xml" value="0.16296296296296298" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_reset_password.xml" value="0.1" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_reset_pwsuccessful.xml" value="0.18" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_verify_code.xml" value="0.2" />
