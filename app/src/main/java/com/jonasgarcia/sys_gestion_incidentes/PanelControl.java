@@ -58,9 +58,6 @@ public class PanelControl extends AppCompatActivity {
                 case R.id.menuAdd:
                     modalMenu();
                     return true;
-                case R.id.menuIncident:
-                    loadFragment(homeIncidents);
-                    return true;
                 case R.id.menuProfile:
                     loadFragment(profileFragment);
                     return true;
