@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -64,14 +65,12 @@ public class HomeIncidents extends Fragment implements RecyclerViewInterface {
 
     private void llenarLista() {
         listIncidet.add(new Incidente("Leve","incidente leve",R.drawable.closet,"2022-02-21","0",""));
-        listIncidet.add(new Incidente("Grave","incidente grave",R.drawable.closet,"2022-02-22","0",""));
+        listIncidet.add(new Incidente("Grave","incidente grave",R.drawable.comedor_madera,"2022-02-22","0",""));
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        listIncidet = new ArrayList<>();
 //        loadIncidents();
 
         recyclerView = view.findViewById(R.id.rvIncidents);
@@ -81,14 +80,13 @@ public class HomeIncidents extends Fragment implements RecyclerViewInterface {
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(getContext(),DetailIncident.class);
+        Intent intent = new Intent(getActivity(),DetailIncident.class);
         intent.putExtra("tipo", listIncidet.get(position).getTipo());
         intent.putExtra("descripcion", listIncidet.get(position).getDescripcion());
         intent.putExtra("imagen", listIncidet.get(position).getImagen());
-        intent.putExtra("estado", listIncidet.get(position).getEstado());
+//        intent.putExtra("estado", listIncidet.get(position).getEstado());
         intent.putExtra("fecha", listIncidet.get(position).getFechaString());
-        intent.putExtra("nota", listIncidet.get(position).getNota());
-
+//        intent.putExtra("nota", listIncidet.get(position).getNota());
         startActivity(intent);
     }
 
