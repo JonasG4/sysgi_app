@@ -107,12 +107,23 @@ public class PanelControl extends AppCompatActivity {
     public void modalMenu(){
 
         View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_bottom_sheet, (LinearLayout)findViewById(R.id.bottomSheetContainer));
+        View bottomIncident = LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_bottom_sheet,(LinearLayout)findViewById(R.id.bottomSheetContainer));
 
         bottomSheetView.findViewById(R.id.btnAddUser).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 pushTo(AddUser.class, true);
+//                pushTo(HomeIncidents.class, true);
 //                Toast.makeText(PanelControl.this, "AAAAAAAAA", Toast.LENGTH_SHORT).show();
+                bottomSheetDialog.dismiss();
+            }
+        });
+
+
+        bottomIncident.findViewById(R.id.btnAddIncident).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pushTo(HomeIncidents.class, true);
                 bottomSheetDialog.dismiss();
             }
         });

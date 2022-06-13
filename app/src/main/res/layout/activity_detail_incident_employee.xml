@@ -14,7 +14,7 @@
         android:padding="20dp">
 
         <ImageView
-            android:id="@+id/imgIncident"
+            android:id="@+id/imgIncidentEmploye"
             android:layout_width="250dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
@@ -22,17 +22,17 @@
             android:src="@drawable/closet" />
 
         <TextView
-            android:id="@+id/detailTipo"
+            android:id="@+id/detailTipoEmploye"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="20dp"
-            android:text="[TIPO INCIDENTE]"
+            android:text="TIPO INCIDENTE"
             android:textColor="@color/slate_200"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/txtTipoIncident"
+            android:id="@+id/txtTipoIncidentEmploye"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -51,17 +51,17 @@
             android:textColorHint="@color/slate_400" />
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/descriptionEmploye"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="20dp"
-            android:text="[DESCRIPCION]"
+            android:text="DESCRIPCION"
             android:textColor="@color/slate_200"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/txtDescripcion"
+            android:id="@+id/txtDescripcionEmploye"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -80,17 +80,17 @@
             android:textColorHint="@color/slate_400" />
 
         <TextView
-            android:id="@+id/fecha"
+            android:id="@+id/fechaEmploye"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="20dp"
-            android:text="[FECHA DE INGRESO]"
+            android:text="FECHA DE INGRESO"
             android:textColor="@color/slate_200"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/fechaIncident"
+            android:id="@+id/fechaIncidentEmploye"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
@@ -100,12 +100,12 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/txtEstado"
+            android:id="@+id/txtEstadoEmploye"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="20dp"
-            android:text="[ESTADO]"
+            android:text="ESTADO"
             android:textColor="@color/slate_200"
             android:textSize="20sp" />
 
@@ -120,7 +120,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/estado"
+                    android:id="@+id/estadoEmploye"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -134,18 +134,44 @@
             </LinearLayout>
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/btnNota"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/sky_500"
-            android:elevation="4dp"
-            android:fontFamily="@font/roboto_bold"
-            android:padding="10dp"
-            android:text="@string/btn_nota"
-            android:textColor="@color/slate_50"
-            app:cornerRadius="5dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/sky_500"
+                    android:elevation="4dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:padding="10dp"
+                    android:text="Editar"
+                    android:textColor="@color/slate_50"
+                    app:cornerRadius="5dp" />
+
+                <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/sky_500"
+                    android:elevation="4dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:padding="10dp"
+                    android:text="Eliminar"
+                    android:textColor="@color/slate_50"
+                    app:cornerRadius="5dp" />
+            </LinearLayout>
+        </RelativeLayout>
+
 
     </LinearLayout>
 </RelativeLayout>
