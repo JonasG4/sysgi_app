@@ -5,12 +5,10 @@
         android:title="Dashboard"
         android:icon="@drawable/ic_baseline_dashboard_24"
         />
-
     <item
         android:id="@+id/menuAdd"
         android:icon="@drawable/ic_baseline_add_24"
-        android:title="Agregar"
-        />
+        android:title="Agregar" />
     <item
         android:id="@+id/menuProfile"
         android:title="Perfil"

@@ -8,10 +8,17 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.jonasgarcia.sys_gestion_incidentes.adminUI.DashboardFragment;
+import com.jonasgarcia.sys_gestion_incidentes.adminUI.HomeIncidents;
+import com.jonasgarcia.sys_gestion_incidentes.employeeIU.HomeFragment;
 import com.jonasgarcia.sys_gestion_incidentes.employeeIU.ProfileFragment;
 
 public class PanelControl extends AppCompatActivity {
@@ -22,9 +29,10 @@ public class PanelControl extends AppCompatActivity {
 
     DashboardFragment dashboardFragment = new DashboardFragment();
     ProfileFragment profileFragment = new ProfileFragment();
+    HomeIncidents homeIncidents = new HomeIncidents();
 
     BottomNavigationView nav;
-
+    BottomSheetDialog bottomSheetDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +43,8 @@ public class PanelControl extends AppCompatActivity {
 
         nav = findViewById(R.id.admin_navigation);
         nav.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        bottomSheetDialog = new BottomSheetDialog(
+                PanelControl.this, R.style.BottomSheetDialogTheme);
         loadFragment(dashboardFragment);
     }
 
@@ -45,6 +54,9 @@ public class PanelControl extends AppCompatActivity {
             switch (item.getItemId()){
                 case R.id.menuDashboard:
                     loadFragment(dashboardFragment);
+                    return true;
+                case R.id.menuAdd:
+                    modalMenu();
                     return true;
                 case R.id.menuProfile:
                     loadFragment(profileFragment);
@@ -84,11 +96,28 @@ public class PanelControl extends AppCompatActivity {
         pushTo(Login.class, true);
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (!preferences.getBoolean("isSaveSession", false)) {
-            logout();
-        }
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        if (!preferences.getBoolean("isSaveSession", false)) {
+//            logout();
+//        }
+//    }
+
+    public void modalMenu(){
+
+        View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_bottom_sheet, (LinearLayout)findViewById(R.id.bottomSheetContainer));
+
+        bottomSheetView.findViewById(R.id.btnAddUser).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pushTo(AddUser.class, true);
+//                Toast.makeText(PanelControl.this, "AAAAAAAAA", Toast.LENGTH_SHORT).show();
+                bottomSheetDialog.dismiss();
+            }
+        });
+
+        bottomSheetDialog.setContentView(bottomSheetView);
+        bottomSheetDialog.show();
     }
 }
