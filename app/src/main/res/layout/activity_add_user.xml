@@ -97,5 +97,22 @@
         android:textColorHint="@color/slate_400"
         android:textSize="16sp" />
 
+    <Spinner
+        android:id="@+id/spnRol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:elevation="4dp"
+        android:background="@drawable/spinner_bg"
+        />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_add_user"
+        android:backgroundTint="@color/sky_600"
+        android:elevation="4dp"
+        android:paddingVertical="10dp"
+        android:textColor="@color/slate_200"
+        />
 </LinearLayout>
