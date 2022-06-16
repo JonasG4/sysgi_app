@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:id="@+id/ll_custom_toast_ok"
+    android:layout_width="wrap_content"
+    android:background="@drawable/bg_toast_ok"
+    android:gravity="center|center_horizontal"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_circle_check_solid2"
+        />
+    <TextView
+        android:id="@+id/tvMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_bold"
+        android:paddingStart="15dp"
+        android:text="¡Registro agregado con éxito!"
+        android:textColor="@color/green_100"/>
+</LinearLayout>

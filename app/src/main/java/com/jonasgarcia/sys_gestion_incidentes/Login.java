@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -32,7 +35,7 @@ public class Login extends AppCompatActivity {
 
     EditText txtEmail, txtPassword;
     Button btnLogin;
-    TextView tvForgotPassword, tvEmailError, tvPasswordError;
+    TextView tvForgotPassword;
     CheckBox cbRememberMe;
 
     SharedPreferences preferences;
@@ -53,8 +56,7 @@ public class Login extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         tvForgotPassword = findViewById(R.id.btnLoginForgotPasswod);
         cbRememberMe = findViewById(R.id.cbRememberMe);
-        tvEmailError = findViewById(R.id.tvLoginEmailError);
-        tvPasswordError = findViewById(R.id.tvLoginPasswordError);
+
 
         // Inicialize preferences
         preferences = this.getSharedPreferences("session", MODE_PRIVATE);
@@ -84,7 +86,6 @@ public class Login extends AppCompatActivity {
                     JSONObject result = new JSONObject(response);
                     JSONObject user = result.getJSONObject("usuario");
                     String token = result.getString("token");
-                    clearInputsError();
 
                     String id_usuario = user.getString("id_usuario");
                     String nombre = user.getString("nombre");
@@ -99,8 +100,6 @@ public class Login extends AppCompatActivity {
                     } else if (Integer.parseInt(rol) == 1) {
                         pushTo(MainActivity.class, true);
                     }
-
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -122,13 +121,10 @@ public class Login extends AppCompatActivity {
                     JSONObject errors = data.getJSONObject("validationError");
 
                     if (!errors.isNull("email")) {
-                        tvEmailError.setText(errors.getString("email"));
+                        showToastErr(errors.getString("email"));
                     } else {
-                        tvEmailError.setText("");
                         if (!errors.isNull("password")) {
-                            tvPasswordError.setText(errors.getString("password"));
-                        } else {
-                            tvPasswordError.setText("");
+                            showToastErr(errors.getString("password"));
                         }
                     }
                 } catch (UnsupportedEncodingException | JSONException e) {
@@ -177,10 +173,6 @@ public class Login extends AppCompatActivity {
         editor.commit();
     }
 
-    public void clearInputsError() {
-        tvEmailError.setText("");
-        tvPasswordError.setText("");
-    }
 
     public void isAuth() {
         if (preferences.getString("token", null) != null) {
@@ -192,4 +184,16 @@ public class Login extends AppCompatActivity {
         }
     }
 
+    public void showToastErr(String msg) {
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.custom_toast_err, (ViewGroup) findViewById(R.id.ll_custom_toast_err));
+        TextView tvMessage = view.findViewById(R.id.tvMsg);
+        tvMessage.setText(msg);
+
+        Toast toastOK = new Toast(getApplicationContext());
+        toastOK.setGravity(Gravity.BOTTOM, 0, 300);
+        toastOK.setDuration(Toast.LENGTH_LONG);
+        toastOK.setView(view);
+        toastOK.show();
+    }
 }

@@ -13,9 +13,12 @@
         android:theme="@style/Theme.Sys_gestion_incidentes"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ChangePassword"
+            android:exported="false" />
+        <activity
             android:name=".employeeIU.DetailIncidentEmployee"
             android:exported="false" />
-       <activity
+        <activity
             android:name=".EditProfile"
             android:exported="false" />
         <activity

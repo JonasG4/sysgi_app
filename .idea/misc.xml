@@ -4,30 +4,74 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable-v24/input_rounded_dualbutton.xml" value="0.3305" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/bg_linehold.xml" value="0.1" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/bg_login.xml" value="0.3595" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/bg_profile.xml" value="0.1465" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/bg_toast_ok.xml" value="0.1" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/bottom_sheet_background.xml" value="0.1" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/btn_bg_outline.xml" value="0.1815" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/button_login_rounded.xml" value="0.345" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/button_press.xml" value="0.184" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/container_rounded.xml" value="0.345" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/container_top_home.xml" value="0.2265" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/dual_bg.xml" value="0.113" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/form_container.xml" value="0.208" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_angle_right_solid.xml" value="0.29" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_arrow_up_left_from_circle.xml" value="0.1165" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2075" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" value="0.2075" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_alternate_email_24.xml" value="0.2075" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_arrow_right_alt_24.xml" value="0.345" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_dashboard_24.xml" value="0.208" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.208" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.208" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.208" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_key_24.xml" value="0.1545" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_24.xml" value="0.1575" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_keyboard_backspace_24.xml" value="0.3305" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.3635" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.208" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.279" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_person_add_24.xml" value="0.282" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_post_add_24.xml" value="0.1" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_power_settings_new_24.xml" value="0.208" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.1545" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.1545" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_circle_check_solid.xml" value="0.136" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_circle_check_solid2.xml" value="0.198" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_circle_user.xml" value="0.183" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_circle_xmark.xml" value="0.208" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_circle_xmark_regular.xml" value="0.3305" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_circle_xmark_solid.xml" value="0.3305" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_eye.xml" value="0.145" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_eye_solid.xml" value="0.239" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_file_chart_column.xml" value="0.1815" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_file_lines_solid.xml" value="0.29" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_file_spreadsheet.xml" value="0.2265" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_file_user.xml" value="0.253" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_magnifying_glass.xml" value="0.1815" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_plus.xml" value="0.1815" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_sliders.xml" value="0.1815" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_trash.xml" value="0.208" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_unlock_keyhole.xml" value="0.208" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_unlock_keyhole_regular.xml" value="0.208" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_user_gear.xml" value="0.207" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_user_pen.xml" value="0.208" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_user_pen_solid.xml" value="0.208" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/ic_user_xmark.xml" value="0.208" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/input_rounded.xml" value="0.345" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/input_roundedError.xml" value="0.3305" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/input_roundedv2.xml" value="0.2965" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/radio_normal.xml" value="0.115" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/radio_selected.xml" value="0.115" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/radio_selector.xml" value="0.115" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/radio_textcolor.xml" value="0.115" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/spinner_bg.xml" value="0.216" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/drawable/top_line_rounded.xml" value="0.3595" />
-        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_add_user.xml" value="0.33" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_add_user.xml" value="0.25" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_change_password.xml" value="0.33" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_dashboard.xml" value="0.3625" />
-        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_edit_profile.xml" value="0.3625" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_edit_profile.xml" value="0.33" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_forgot_password.xml" value="0.3625" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_main.xml" value="0.25" />
@@ -35,11 +79,19 @@
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_reset_password.xml" value="0.1" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_reset_pwsuccessful.xml" value="0.18" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/activity_verify_code.xml" value="0.2" />
-        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/fragment_dashboard.xml" value="0.3625" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/bg_toast_ok.xml" value="0.11944444444444445" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/custom_toast_err.xml" value="0.3625" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/custom_toast_ok.xml" value="0.22" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/fragment_home_incidents.xml" value="0.3625" />
-        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/fragment_profile.xml" value="0.3625" />
-        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.22" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/fragment_home_users.xml" value="0.33" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/item_incident.xml" value="0.3625" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/item_list_user.xml" value="0.33" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/layout_bottom_create_users.xml" value="0.2864450127877238" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/layout_bottom_filters.xml" value="0.3625" />
+        <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.2" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/layout/spinner_items.xml" value="0.1875" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/menu/bottom_nav_admin.xml" value="0.3625" />
         <entry key="..\:/Users/super/AndroidStudioProjects/sys_gestion_incidentes/app/src/main/res/menu/bottom_navigation.xml" value="0.25" />

@@ -13,6 +13,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btn_add_user">Guardar</string>
+    <string name="rb_admin">Administrador</string>
+    <string name="rb_employee">Empleado</string>
 
 
     <string-array name="roles">

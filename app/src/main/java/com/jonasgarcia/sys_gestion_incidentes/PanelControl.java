@@ -8,16 +8,20 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.jonasgarcia.sys_gestion_incidentes.adminUI.DashboardFragment;
 import com.jonasgarcia.sys_gestion_incidentes.adminUI.HomeIncidents;
+import com.jonasgarcia.sys_gestion_incidentes.adminUI.HomeUsersFragment;
 import com.jonasgarcia.sys_gestion_incidentes.employeeIU.HomeFragment;
 import com.jonasgarcia.sys_gestion_incidentes.employeeIU.ProfileFragment;
 
@@ -27,12 +31,16 @@ public class PanelControl extends AppCompatActivity {
     //    SharedPreferences
     SharedPreferences preferences;
 
+    //    Fragments
     DashboardFragment dashboardFragment = new DashboardFragment();
     ProfileFragment profileFragment = new ProfileFragment();
     HomeIncidents homeIncidents = new HomeIncidents();
+    HomeUsersFragment homeUsersFragment = new HomeUsersFragment();
 
+    //    Dialogs
     BottomNavigationView nav;
     BottomSheetDialog bottomSheetDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +59,7 @@ public class PanelControl extends AppCompatActivity {
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.menuDashboard:
                     loadFragment(dashboardFragment);
                     return true;
@@ -66,7 +74,7 @@ public class PanelControl extends AppCompatActivity {
         }
     };
 
-    public void loadFragment(Fragment fragment){
+    public void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container, fragment);
         transaction.commit();
@@ -96,20 +104,23 @@ public class PanelControl extends AppCompatActivity {
         pushTo(Login.class, true);
     }
 
-    public void modalMenu(){
+    public void modalMenu() {
 
-        View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_bottom_sheet, findViewById(R.id.bottomSheetContainer));
+        View bottomSheetView =
+                LayoutInflater.from(getApplicationContext()).
+                        inflate(R.layout.layout_bottom_sheet,
+                                findViewById(R.id.bottomSheetContainer));
 
-        bottomSheetView.findViewById(R.id.btnAddUser).setOnClickListener(new View.OnClickListener() {
+        bottomSheetView.findViewById(R.id.btnModuleUsers).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pushTo(AddUser.class, false);
+                loadFragment(homeUsersFragment);
                 bottomSheetDialog.dismiss();
             }
         });
 
 
-        bottomSheetView.findViewById(R.id.btnAddIncident).setOnClickListener(new View.OnClickListener() {
+        bottomSheetView.findViewById(R.id.btnModuleIncidents).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loadFragment(homeIncidents);
@@ -117,7 +128,27 @@ public class PanelControl extends AppCompatActivity {
             }
         });
 
+        bottomSheetView.findViewById(R.id.btnClose).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomSheetDialog.dismiss();
+            }
+        });
+
         bottomSheetDialog.setContentView(bottomSheetView);
         bottomSheetDialog.show();
+    }
+
+    public void showToastOK(String msg) {
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.custom_toast_ok, (ViewGroup) findViewById(R.id.ll_custom_toast_ok));
+        TextView tvMessage = view.findViewById(R.id.tvMsg);
+        tvMessage.setText(msg);
+
+        Toast toastOK = new Toast(getApplicationContext());
+        toastOK.setGravity(Gravity.BOTTOM, 0, -200);
+        toastOK.setDuration(Toast.LENGTH_SHORT);
+        toastOK.setView(view);
+        toastOK.show();
     }
 }

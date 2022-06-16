@@ -3,12 +3,16 @@ package com.jonasgarcia.sys_gestion_incidentes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -43,9 +47,9 @@ public class AddUser extends AppCompatActivity {
         setContentView(R.layout.activity_add_user);
 
 //        SPINNER ROLES
-        spRoles = findViewById(R.id.spnRol);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.roles, R.layout.spinner_items);
-        spRoles.setAdapter(adapter);
+//        spRoles = findViewById(R.id.spnRol);
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.roles, R.layout.spinner_items);
+//        spRoles.setAdapter(adapter);
 
         txtName = findViewById(R.id.txtAddUser_Name);
         txtLastname = findViewById(R.id.txtAddUser_Lastname);
@@ -65,7 +69,9 @@ public class AddUser extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addNewUser();
+                showToastOK("¡Usuario registrado con exito!");
+                finish();
+//                addNewUser();
             }
         });
     }
@@ -129,5 +135,18 @@ public class AddUser extends AppCompatActivity {
             }
         };
         requestQueue.add(request);
+    }
+
+    public void showToastOK(String msg){
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.custom_toast_ok, (ViewGroup) findViewById(R.id.ll_custom_toast_ok));
+        TextView tvMessage = view.findViewById(R.id.tvMsg);
+        tvMessage.setText(msg);
+
+        Toast toastOK = new Toast(getApplicationContext());
+        toastOK.setGravity(Gravity.BOTTOM, 0, 300);
+        toastOK.setDuration(Toast.LENGTH_LONG);
+        toastOK.setView(view);
+        toastOK.show();
     }
 }

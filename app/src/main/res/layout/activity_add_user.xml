@@ -4,139 +4,235 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:background="@color/slate_900"
     android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:padding="20dp"
     tools:context=".AddUser">
-    <LinearLayout
-        android:id="@+id/btnAddUser_Back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
 
-        <ImageView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/form_container"
+
+        android:padding="25dp"
+        android:elevation="4dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/btnAddUser_Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/ic_baseline_keyboard_backspace_24" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_baseline_keyboard_backspace_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Regresar"
+                android:textColor="@color/sky_600"
+                android:textSize="14sp" />
+        </LinearLayout>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
-            android:text="Regresar"
-            android:textColor="@color/sky_600"
-            android:textSize="14sp" />
+            android:layout_marginTop="10dp"
+            android:text="Registro de usuario"
+            android:textColor="@color/slate_200"
+            android:textSize="20sp" />
+        <View
+            android:layout_width="50dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/sky_600" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Nombre:"
+            android:textColor="@color/slate_200" />
+
+        <EditText
+            android:id="@+id/txtAddUser_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:autofillHints="name"
+            android:background="@drawable/input_rounded"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/slate_300"
+            android:textColorHint="@color/slate_400"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Apellido:"
+            android:textColor="@color/slate_200" />
+
+        <EditText
+            android:id="@+id/txtAddUser_Lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:autofillHints="name"
+            android:background="@drawable/input_rounded"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Apellido"
+            android:inputType="textPersonName"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/slate_300"
+            android:textColorHint="@color/slate_400"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Correo Electronico:"
+            android:textColor="@color/slate_200" />
+
+        <EditText
+            android:id="@+id/txtAddUser_Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/input_rounded"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/txt_email_hint"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/slate_300"
+            android:textColorHint="@color/slate_400"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Contraseña:"
+            android:textColor="@color/slate_200" />
+
+        <EditText
+            android:id="@+id/txtAddUser_Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:autofillHints="password"
+            android:background="@drawable/input_rounded"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/txt_password_hint"
+            android:inputType="textPassword"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/slate_300"
+            android:textColorHint="@color/slate_400"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Confirmar contraseña:"
+            android:textColor="@color/slate_200" />
+
+        <EditText
+            android:id="@+id/txtAddUser_ConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:autofillHints="password"
+            android:background="@drawable/input_rounded"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Confirmar contraseña"
+            android:inputType="textPassword"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/slate_300"
+            android:textColorHint="@color/slate_400"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Rol de usuario:"
+            android:textColor="@color/slate_200" />
+
+        <RadioGroup
+            android:id="@+id/rd_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:checkedButton="@id/rb_employee"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_employee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_selector"
+                android:button="@android:color/transparent"
+                android:elevation="4dp"
+                android:paddingHorizontal="15dp"
+                android:text="@string/rb_employee"
+                android:textColor="@drawable/radio_textcolor" />
+
+            <RadioButton
+                android:id="@+id/rb_admin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radio_selector"
+                android:button="@android:color/transparent"
+                android:elevation="4dp"
+                android:paddingHorizontal="15dp"
+                android:text="@string/rb_admin"
+                android:textColor="@drawable/radio_textcolor" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnAddUser_Save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/sky_600"
+            android:drawableEnd="@drawable/ic_baseline_save_24"
+            android:drawableTint="@color/slate_200"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_bold"
+            android:paddingVertical="10dp"
+            android:text="@string/btn_add_user"
+            android:textColor="@color/slate_200" />
     </LinearLayout>
-    <TextView
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Registro de usuario"
-        android:textColor="@color/slate_200"
-        android:fontFamily="@font/roboto_bold"
-        android:textSize="30sp"
-        />
-    <EditText
-        android:id="@+id/txtAddUser_Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:autofillHints="name"
-        android:background="@drawable/input_rounded"
-        android:elevation="4dp"
-        android:fontFamily="@font/roboto_regular"
-        android:hint="Nombre"
-        android:inputType="textPersonName"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:textColor="@color/slate_300"
-        android:textColorHint="@color/slate_400"
-        android:textSize="16sp" />
-    <EditText
-        android:id="@+id/txtAddUser_Lastname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:autofillHints="name"
-        android:background="@drawable/input_rounded"
-        android:elevation="4dp"
-        android:fontFamily="@font/roboto_regular"
-        android:hint="Apellido"
-        android:inputType="textPersonName"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:textColor="@color/slate_300"
-        android:textColorHint="@color/slate_400"
-        android:textSize="16sp" />
-    <EditText
-        android:id="@+id/txtAddUser_Email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:autofillHints="emailAddress"
-        android:background="@drawable/input_rounded"
-        android:elevation="4dp"
-        android:fontFamily="@font/roboto_regular"
-        android:hint="@string/txt_email_hint"
-        android:inputType="textEmailAddress"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:textColor="@color/slate_300"
-        android:textColorHint="@color/slate_400"
-        android:textSize="16sp" />
-    <EditText
-        android:id="@+id/txtAddUser_Password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:autofillHints="password"
-        android:background="@drawable/input_rounded"
-        android:elevation="4dp"
-        android:fontFamily="@font/roboto_regular"
-        android:hint="@string/txt_password_hint"
-        android:inputType="textPassword"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:textColor="@color/slate_300"
-        android:textColorHint="@color/slate_400"
-        android:textSize="16sp" />
-    <EditText
-        android:id="@+id/txtAddUser_ConfirmPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:autofillHints="password"
-        android:background="@drawable/input_rounded"
-        android:elevation="4dp"
-        android:fontFamily="@font/roboto_regular"
-        android:hint="Confirmar contraseña"
-        android:inputType="textPassword"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:textColor="@color/slate_300"
-        android:textColorHint="@color/slate_400"
-        android:textSize="16sp" />
 
-    <Spinner
-        android:id="@+id/spnRol"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:elevation="4dp"
-        android:background="@drawable/input_rounded"
-        />
-
-    <Button
-        android:id="@+id/btnAddUser_Save"
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_add_user"
-        android:backgroundTint="@color/sky_600"
-        android:elevation="4dp"
-        android:paddingVertical="10dp"
-        android:textColor="@color/slate_200"
-        />
 </LinearLayout>

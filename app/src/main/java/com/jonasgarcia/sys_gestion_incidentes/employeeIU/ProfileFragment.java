@@ -13,7 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
+import com.jonasgarcia.sys_gestion_incidentes.ChangePassword;
+import com.jonasgarcia.sys_gestion_incidentes.EditProfile;
 import com.jonasgarcia.sys_gestion_incidentes.Login;
 import com.jonasgarcia.sys_gestion_incidentes.R;
 
@@ -22,10 +25,12 @@ public class ProfileFragment extends Fragment {
 
     SharedPreferences preferences;
     Button btnLogout;
+    RelativeLayout btnEdit, btnDelete, btnChangePassword;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferences = this.getActivity().getSharedPreferences("session", Context.MODE_PRIVATE);
+
     }
 
     @Override
@@ -39,6 +44,23 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         btnLogout = view.findViewById(R.id.btnLogout);
+        btnEdit = view.findViewById(R.id.btnProfileEdit);
+        btnChangePassword = view.findViewById(R.id.btnProfileChangePassword);
+        btnDelete = view.findViewById(R.id.btnProfileDelete);
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pushTo(EditProfile.class);
+            }
+        });
+
+        btnChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pushTo(ChangePassword.class);
+            }
+        });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override

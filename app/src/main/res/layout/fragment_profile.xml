@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/slate_800"
-    android:padding="20dp"
     tools:context=".employeeIU.ProfileFragment">
 
     <LinearLayout
@@ -14,101 +14,197 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/bg_profile"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!--        <LinearLayout-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginTop="30dp"-->
+            <!--            android:gravity="center_vertical"-->
+            <!--            android:orientation="horizontal">-->
+
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginEnd="15dp"-->
+            <!--                android:fontFamily="@font/roboto_bold"-->
+            <!--                android:text="Hola, Jonas"-->
+            <!--                android:textColor="@color/slate_200"-->
+            <!--                android:textSize="30sp" />-->
+
+            <!--            <ImageView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:src="@drawable/ic_baseline_waving_hand_24" />-->
+            <!--        </LinearLayout>-->
+            <View
+                android:layout_width="40dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_linehold"
+                android:backgroundTint="@color/slate_400" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="15dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Hola, Jonas"
+                android:text="Mi Perfil"
                 android:textColor="@color/slate_200"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_waving_hand_24" />
-        </LinearLayout>
+            <View
+                android:layout_width="40dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/sky_600" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
-            android:fontFamily="@font/roboto_bold"
-            android:text="Mi perfil"
-            android:textColor="@color/slate_200"
-            android:textSize="20sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="vertical">
-
-            <Button
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/slate_700"
-                android:drawableEnd="@drawable/ic_angle_right_solid"
-                android:drawableTint="@color/slate_200"
-                android:elevation="0dp"
-                android:fontFamily="@font/roboto_bold"
-                android:padding="10dp"
-                android:text="Editar mi perfil"
-                android:textAlignment="textStart"
-                android:textColor="@color/slate_200"
-                android:textSize="12sp" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/slate_700"
-                android:drawableEnd="@drawable/ic_angle_right_solid"
-                android:drawableTint="@color/slate_200"
-                android:elevation="0dp"
-                android:fontFamily="@font/roboto_bold"
-                android:padding="10dp"
-                android:text="Cambiar contraseña"
-                android:textAlignment="textStart"
-                android:textColor="@color/slate_200"
-                android:textSize="12sp" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/slate_700"
-                android:drawableEnd="@drawable/ic_angle_right_solid"
-                android:drawableTint="@color/slate_200"
-                android:elevation="0dp"
-                android:fontFamily="@font/roboto_bold"
-                android:padding="10dp"
-                android:text="Eliminar mi cuenta"
-                android:textAlignment="textStart"
-                android:textColor="@color/slate_200"
-                android:textSize="12sp" />
-
-            <Button
                 android:layout_marginTop="20dp"
-                android:id="@+id/btnLogout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:backgroundTint="@color/red_600"
-                android:drawableEnd="@drawable/ic_baseline_power_settings_new_24"
-                android:drawableTint="@color/slate_200"
-                android:elevation="0dp"
-                android:fontFamily="@font/roboto_bold"
-                android:padding="10dp"
-                android:text="Cerrar sesión"
-                android:textColor="@color/slate_200"
-                android:textSize="12sp" />
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/btnProfileEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_user_pen_solid" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="40dp"
+                        android:fontFamily="@font/roboto_regular"
+
+                        android:text="Editar perfil"
+                        android:textColor="@color/slate_400" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_angle_right_solid" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/slate_700" />
+
+                <RelativeLayout
+                    android:id="@+id/btnProfileChangePassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_unlock_keyhole_solid" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="40dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Cambiar contraseña"
+                        android:textColor="@color/slate_400" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_angle_right_solid" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/slate_700" />
+
+                <RelativeLayout
+                    android:id="@+id/btnProfileDelete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:id="@+id/iconDelete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_trash_solid" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="40dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Eliminar cuenta"
+                        android:textColor="@color/slate_400" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_angle_right_solid" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/slate_700" />
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/red_600"
+                    android:fontFamily="@font/roboto_bold"
+                    android:padding="10dp"
+                    android:text="Cerrar sesión"
+                    android:textColor="@color/slate_200"
+                    android:textSize="12sp"
+                    app:icon="@drawable/ic_baseline_logout_24"
+                    app:iconTint="@color/slate_200" />
+            </LinearLayout>
+
+
         </LinearLayout>
-
-
     </LinearLayout>
+
 </FrameLayout>
