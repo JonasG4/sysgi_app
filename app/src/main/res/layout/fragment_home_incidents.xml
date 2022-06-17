@@ -1,13 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/HomeIncidentesFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/slate_800"
-    tools:context=".adminUI.HomeIncidents">
+    tools:context=".adminUI.HomeIncidentsFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvIncidents"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/container_top_home"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Lista de Incidentes"
+                android:textColor="@color/slate_200"
+                android:textSize="20dp" />
+
+            <View
+                android:layout_width="50dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/sky_600" />
+
+            <EditText
+                android:id="@+id/txtHomeIncidentSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/input_rounded"
+                android:drawableStart="@drawable/ic_magnifying_glass"
+                android:drawablePadding="20dp"
+                android:drawableTint="@color/slate_400"
+                android:fontFamily="@font/roboto_light"
+                android:hint="Buscar"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:textColorHint="@color/slate_400" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="15dp">
+
+                <Button
+                    android:id="@+id/btnHomeIncidentFilters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/btn_bg_outline"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Filtros"
+                    android:textAllCaps="false"
+                    android:textColor="@color/sky_500"
+                    app:icon="@drawable/ic_sliders"
+                    app:iconTint="@color/sky_600" />
+
+                <Button
+                    android:id="@+id/btnHomeIncidentCreate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_bg_outline"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Crear"
+                    android:textAllCaps="false"
+                    android:textColor="@color/sky_500"
+                    app:icon="@drawable/ic_square_plus"
+                    app:iconTint="@color/sky_500" />
+            </RelativeLayout>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_CountIncidents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/slate_400"
+            android:text="0 incidentes"
+            android:fontFamily="@font/roboto_regular"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvIncidents"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            />
+    </LinearLayout>
 </FrameLayout>

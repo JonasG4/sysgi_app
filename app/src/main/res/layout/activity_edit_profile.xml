@@ -3,107 +3,172 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/slate_900"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="@color/slate_900"
+    android:gravity="center_vertical"
     tools:context=".EditProfile">
-    <LinearLayout
-        android:id="@+id/btnAddUser_Back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
 
-        <ImageView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/form_container"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="25dp">
+
+        <LinearLayout
+            android:id="@+id/btnEditProfile_Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/ic_baseline_keyboard_backspace_24" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_baseline_keyboard_backspace_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Regresar"
+                android:textColor="@color/sky_600"
+                android:textSize="14sp" />
+        </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_bold"
-            android:text="Regresar"
-            android:textColor="@color/sky_600"
-            android:textSize="14sp" />
-    </LinearLayout>
-    <TextView
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Editar Información"
-        android:textColor="@color/slate_200"
-        android:fontFamily="@font/roboto_bold"
-        android:textSize="25sp"
-        />
-    <TextView
-        android:layout_marginTop="1dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mi Perfil"
-        android:textColor="@color/slate_400"
-        android:fontFamily="@font/roboto_bold"
-        android:textSize="18sp"
-        />
-    <EditText
-        android:id="@+id/txtAddUser_Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:autofillHints="name"
-        android:background="@drawable/input_rounded"
-        android:elevation="4dp"
-        android:fontFamily="@font/roboto_regular"
-        android:hint="Nombre"
-        android:inputType="textPersonName"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:textColor="@color/slate_300"
-        android:textColorHint="@color/slate_400"
-        android:textSize="16sp" />
-    <EditText
-        android:id="@+id/txtAddUser_Lastname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:autofillHints="name"
-        android:background="@drawable/input_rounded"
-        android:elevation="4dp"
-        android:fontFamily="@font/roboto_regular"
-        android:hint="Apellido"
-        android:inputType="textPersonName"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:textColor="@color/slate_300"
-        android:textColorHint="@color/slate_400"
-        android:textSize="16sp" />
-    <EditText
-        android:id="@+id/txtAddUser_Email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:autofillHints="emailAddress"
-        android:background="@drawable/input_rounded"
-        android:elevation="4dp"
-        android:fontFamily="@font/roboto_regular"
-        android:hint="@string/txt_email_hint"
-        android:inputType="textEmailAddress"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:textColor="@color/slate_300"
-        android:textColorHint="@color/slate_400"
-        android:textSize="16sp" />
+            android:text="Editar Perfil"
+            android:textColor="@color/slate_200"
+            android:textSize="20sp" />
+        <View
+            android:layout_width="50dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/sky_600" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Escribe tu nueva informacion personal"
+            android:textColor="@color/slate_400"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Nombre:"
+            android:textColor="@color/slate_200" />
 
-    <Button
-        android:id="@+id/btnAddUser_Save"
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content"
-        android:text="Actualizar"
-        android:backgroundTint="@color/sky_600"
-        android:elevation="4dp"
-        android:paddingVertical="10dp"
-        android:textColor="@color/slate_200"
-        />
+        <EditText
+            android:id="@+id/txtUpdateProfile_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:autofillHints="name"
+            android:background="@drawable/input_rounded"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/slate_300"
+            android:textColorHint="@color/slate_400"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtUpdateProfile_NameError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text=""
+            android:textColor="@color/red_500"
+            android:textSize="12sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Apellido:"
+            android:textColor="@color/slate_200" />
+
+        <EditText
+            android:id="@+id/txtUpdateProfile_Lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:autofillHints="name"
+            android:background="@drawable/input_rounded"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Apellido"
+            android:inputType="textPersonName"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/slate_300"
+            android:textColorHint="@color/slate_400"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtUpdateProfile_LastnameError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text=""
+            android:textColor="@color/red_500"
+            android:textSize="12sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Correo Electrónico:"
+            android:textColor="@color/slate_200" />
+        <EditText
+            android:id="@+id/txtUpdateProfile_Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/input_rounded"
+            android:elevation="4dp"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/txt_email_hint"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/slate_300"
+            android:textColorHint="@color/slate_400"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtUpdateProfile_EmailError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text=""
+            android:textColor="@color/red_500"
+            android:textSize="12sp" />
+        <Button
+            android:id="@+id/btnUpdateProfile_Save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/sky_600"
+            android:elevation="4dp"
+            android:paddingVertical="10dp"
+            android:text="Confirmar"
+            android:textColor="@color/slate_200" />
+    </LinearLayout>
+
 </LinearLayout>

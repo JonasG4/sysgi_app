@@ -4,69 +4,164 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bottom_sheet_background"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="44dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_linehold"
+        android:backgroundTint="@color/sky_600" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Menú"
+            android:layout_centerVertical="true"
+            android:textAllCaps="true"
+            android:textColor="@color/slate_200"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Cerrar"
+            android:textColor="@color/sky_600" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/slate_500" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="15dp"
-        android:text="Agregar"
-        android:fontFamily="@font/roboto_bold"
-        android:textColor="@color/slate_200"
-        android:textSize="18sp"
-        />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/slate_500"
-        />
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Módulos"
+        android:textColor="@color/slate_400" />
+
     <LinearLayout
-        android:id="@+id/btnAddUser"
+        android:id="@+id/btnModuleUsers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:background="@drawable/button_press"
         android:gravity="center_vertical"
-        android:paddingVertical="20dp"
-        >
+        android:orientation="horizontal"
+        android:paddingVertical="15dp">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_person_add_24"
             android:layout_weight="4"
-            />
+            android:src="@drawable/ic_baseline_person_24" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Usuario"
-            android:textColor="@color/slate_200"
-            android:fontFamily="@font/roboto_bold"
-            android:textSize="16sp"
             android:layout_weight="1"
-            />
+            android:fontFamily="@font/roboto_regular"
+            android:text="Gestionar Usuarios"
+            android:textColor="@color/slate_200"
+            android:textSize="16sp" />
+
     </LinearLayout>
+
     <LinearLayout
-        android:id="@+id/btnAddIncident"
+        android:id="@+id/btnModuleIncidents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:background="@drawable/button_press"
         android:gravity="center_vertical"
-        android:paddingVertical="20dp"
-        >
+        android:orientation="horizontal"
+        android:paddingVertical="15dp">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_post_add_24"
             android:layout_weight="4"
-            />
+            android:src="@drawable/ic_file_lines_solid" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Incidente"
-            android:textColor="@color/slate_200"
-            android:fontFamily="@font/roboto_bold"
-            android:textSize="16sp"
             android:layout_weight="1"
-            />
+            android:fontFamily="@font/roboto_regular"
+            android:text="Gestionar Incidentes"
+            android:textColor="@color/slate_200"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Reportes"
+        android:textColor="@color/slate_400" />
+
+    <LinearLayout
+        android:id="@+id/btnGenerateReportUsers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_press"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="15dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:src="@drawable/ic_file_user" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Generar reporte de usuarios"
+            android:textColor="@color/slate_200"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnGenerateReportIncidents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_press"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="15dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:src="@drawable/ic_file_spreadsheet" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Generar reporte de Incidente"
+            android:textColor="@color/slate_200"
+            android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

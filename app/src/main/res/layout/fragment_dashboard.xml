@@ -14,13 +14,22 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/slate_700"
+            android:background="@drawable/container_top_home"
+            android:elevation="4dp"
             android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/profilePic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_circle_user" />
 
             <TextView
                 android:id="@+id/tvFgHomeName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/profilePic"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/roboto_bold"
                 android:text="[NOMBRE]"
                 android:textAlignment="center"
@@ -35,14 +44,22 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="[EMAIL]"
                 android:textAlignment="center"
-                android:textColor="@color/slate_400" />
+                android:textColor="@color/slate_400"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="4dp"
+                android:layout_below="@id/tvFgHomeEmail"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_linehold" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            >
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:id="@+id/ly1"
@@ -52,15 +69,18 @@
                 android:layout_marginEnd="5dp"
                 android:background="@drawable/container_rounded"
                 android:backgroundTint="@color/rose_500"
-                android:elevation="8dp"
+                android:elevation="4dp"
                 android:orientation="horizontal"
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/gadgetAdminNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/roboto_bold"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto_black"
                     android:gravity="center"
+                    android:paddingHorizontal="5dp"
                     android:text="2"
                     android:textColor="@color/slate_200"
                     android:textSize="30sp" />
@@ -68,9 +88,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/roboto_black"
-                    android:gravity="center_vertical|end"
-                    android:text="Administradores Registrados"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical|start"
+                    android:text="Admin Registrados"
+                    android:textAllCaps="true"
                     android:textColor="@color/slate_200"
                     android:textSize="14sp" />
 
@@ -85,35 +106,38 @@
                 android:layout_toEndOf="@id/ly1"
                 android:background="@drawable/container_rounded"
                 android:backgroundTint="@color/violet_500"
-                android:elevation="8dp"
+                android:elevation="4dp"
                 android:orientation="horizontal"
                 android:padding="20dp">
 
                 <TextView
+                    android:id="@+id/gadgetEmployeeNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/roboto_bold"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto_black"
                     android:gravity="center"
-                    android:text="16"
+                    android:text="9"
                     android:textColor="@color/slate_200"
                     android:textSize="30sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/roboto_bold"
-                    android:gravity="center_vertical|end"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical|start"
                     android:text="Empleados registrados"
+                    android:textAllCaps="true"
                     android:textColor="@color/slate_200"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            >
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:id="@+id/ly3"
@@ -128,22 +152,25 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/gadgetNewIncidentsNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/roboto_black"
                     android:gravity="center"
                     android:text="10"
+                    android:layout_marginEnd="10dp"
                     android:textColor="@color/slate_200"
                     android:textSize="30sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/roboto_black"
-                    android:gravity="center_vertical|end"
-                    android:text="Nuevos \n Incidentes"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical"
+                    android:text="Nuevos \nIncidentes"
+                    android:textAllCaps="true"
                     android:textColor="@color/slate_200"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -156,14 +183,16 @@
                 android:layout_toEndOf="@id/ly3"
                 android:background="@drawable/container_rounded"
                 android:backgroundTint="@color/violet_400"
-                android:elevation="8dp"
+                android:elevation="4dp"
                 android:orientation="horizontal"
                 android:padding="20dp">
 
                 <TextView
+                    android:id="@+id/gadgetTotalUsersNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/roboto_bold"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto_black"
                     android:gravity="center"
                     android:text="8"
                     android:textColor="@color/slate_200"
@@ -172,11 +201,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/roboto_bold"
-                    android:gravity="center_vertical|end"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical"
                     android:text="Usuarios \n creados"
+                    android:textAllCaps="true"
                     android:textColor="@color/slate_200"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
         </RelativeLayout>

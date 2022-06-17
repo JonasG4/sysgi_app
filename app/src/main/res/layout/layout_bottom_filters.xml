@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottomFilterContainer"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_sheet_background"
+    >
+    <View
+        android:layout_width="44dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_linehold"
+        android:backgroundTint="@color/sky_600" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Filtros"
+            android:textAllCaps="true"
+            android:textColor="@color/slate_200"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btnFilterClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Cerrar"
+            android:textColor="@color/sky_600" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/slate_500" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Roles"
+        android:textColor="@color/slate_400"
+        android:fontFamily="@font/roboto_bold"/>
+        <RadioGroup
+            android:id="@+id/rd_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:checkedButton="@id/rb_all"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rb_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_selector2"
+                android:button="@android:color/transparent"
+                android:elevation="4dp"
+                android:paddingHorizontal="10dp"
+                android:text="Todos"
+                android:textColor="@drawable/radio_textcolor" />
+            <RadioButton
+                android:id="@+id/rb_employee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_selector2"
+                android:button="@android:color/transparent"
+                android:elevation="4dp"
+                android:paddingHorizontal="10dp"
+                android:text="@string/rb_employee"
+                android:textColor="@drawable/radio_textcolor" />
+
+            <RadioButton
+                android:id="@+id/rb_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radio_selector2"
+                android:button="@android:color/transparent"
+                android:elevation="4dp"
+                android:paddingHorizontal="10dp"
+                android:text="Admin"
+                android:textColor="@drawable/radio_textcolor" />
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>

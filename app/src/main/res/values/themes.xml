@@ -19,6 +19,7 @@
         <item name="itemIconTint">@color/slate_200</item>
         <item name="itemTextColor">@color/slate_200</item>
     </style>
+
     <style name="BottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
     </style>

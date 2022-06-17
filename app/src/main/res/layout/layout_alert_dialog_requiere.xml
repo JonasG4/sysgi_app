@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutDialogContainerRequiere"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/container_rounded"
+        android:backgroundTint="@color/slate_800"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Confirma tu identidad"
+            android:textAlignment="center"
+            android:textColor="@color/slate_200"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/bg_linehold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingHorizontal="10dp"
+            android:text="Escribe tu contraseña"
+            android:textColor="@color/slate_400"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/txtDialogPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:background="@drawable/input_rounded"
+            android:backgroundTint="@color/slate_700"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/slate_400"
+            android:textColor="@color/slate_200"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDialogContinue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/sky_500"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Continuar"
+                android:textColor="@color/slate_200" />
+
+            <Button
+                android:id="@+id/btnDialogBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/red_500"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Salir"
+                android:textColor="@color/slate_200" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
