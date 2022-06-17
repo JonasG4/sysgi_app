@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/slate_900"
-    android:orientation="vertical"
     android:padding="20dp"
-    android:gravity="center_vertical"
-    tools:context=".EditProfile">
+    android:background="@color/slate_800"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".EditUser">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/form_container"
-        android:elevation="4dp"
-        android:orientation="vertical"
-        android:gravity="center_vertical"
-        android:padding="25dp">
 
+        android:padding="25dp"
+        android:elevation="4dp"
+        android:orientation="vertical">
         <LinearLayout
-            android:id="@+id/btnEditProfile_Back"
+            android:id="@+id/btnUpdateUser_Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -45,22 +44,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_bold"
-            android:text="Editar Perfil"
+            android:text="Editar usuario"
             android:textColor="@color/slate_200"
             android:textSize="20sp" />
+
         <View
             android:layout_width="50dp"
             android:layout_height="4dp"
-            android:layout_marginTop="5dp"
-            android:background="@color/sky_600" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/roboto_regular"
-            android:text="Escribe tu nueva informacion personal"
-            android:textColor="@color/slate_400"
-            android:textSize="16sp" />
+            android:background="@color/sky_600" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,10 +63,10 @@
             android:textColor="@color/slate_200" />
 
         <EditText
-            android:id="@+id/txtUpdateProfile_Name"
+            android:id="@+id/txtUpdateUser_Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:autofillHints="name"
             android:background="@drawable/input_rounded"
             android:elevation="4dp"
@@ -85,8 +78,9 @@
             android:textColor="@color/slate_300"
             android:textColorHint="@color/slate_400"
             android:textSize="16sp" />
+
         <TextView
-            android:id="@+id/txtUpdateProfile_NameError"
+            android:id="@+id/txtUpdateUser_NameError"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -103,7 +97,7 @@
             android:textColor="@color/slate_200" />
 
         <EditText
-            android:id="@+id/txtUpdateProfile_Lastname"
+            android:id="@+id/txtUpdateUser_Lastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -119,7 +113,7 @@
             android:textColorHint="@color/slate_400"
             android:textSize="16sp" />
         <TextView
-            android:id="@+id/txtUpdateProfile_LastnameError"
+            android:id="@+id/txtUpdateUser_LastnameError"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -132,10 +126,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/roboto_bold"
-            android:text="Correo Electrónico:"
+            android:text="Correo Electronico:"
             android:textColor="@color/slate_200" />
+
         <EditText
-            android:id="@+id/txtUpdateProfile_Email"
+            android:id="@+id/txtUpdateUser_Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -150,8 +145,9 @@
             android:textColor="@color/slate_300"
             android:textColorHint="@color/slate_400"
             android:textSize="16sp" />
+
         <TextView
-            android:id="@+id/txtUpdateProfile_EmailError"
+            android:id="@+id/txtUpdateUser_EmailError"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -159,16 +155,60 @@
             android:text=""
             android:textColor="@color/red_500"
             android:textSize="12sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Rol de usuario:"
+            android:textColor="@color/slate_200" />
+
+        <RadioGroup
+            android:id="@+id/rd_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:checkedButton="@id/rb_employee"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_employee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_selector"
+                android:button="@android:color/transparent"
+                android:elevation="4dp"
+                android:paddingHorizontal="15dp"
+                android:text="@string/rb_employee"
+                android:textColor="@drawable/radio_textcolor" />
+
+            <RadioButton
+                android:id="@+id/rb_admin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radio_selector"
+                android:button="@android:color/transparent"
+                android:elevation="4dp"
+                android:paddingHorizontal="15dp"
+                android:text="@string/rb_admin"
+                android:textColor="@drawable/radio_textcolor" />
+        </RadioGroup>
+
         <Button
-            android:id="@+id/btnUpdateProfile_Save"
+            android:id="@+id/btnUpdateUser_Save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/sky_600"
+            android:drawableEnd="@drawable/ic_user_pen_solid"
+            android:drawableTint="@color/slate_200"
             android:elevation="4dp"
+            android:fontFamily="@font/roboto_bold"
             android:paddingVertical="10dp"
-            android:text="Confirmar"
+            android:text="Actualizar"
             android:textColor="@color/slate_200" />
     </LinearLayout>
-
 </LinearLayout>

@@ -44,5 +44,62 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/slate_500" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        >
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Roles"
+        android:textColor="@color/slate_400"
+        android:fontFamily="@font/roboto_bold"/>
+        <RadioGroup
+            android:id="@+id/rd_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:checkedButton="@id/rb_all"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rb_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_selector2"
+                android:button="@android:color/transparent"
+                android:elevation="4dp"
+                android:paddingHorizontal="10dp"
+                android:text="Todos"
+                android:textColor="@drawable/radio_textcolor" />
+            <RadioButton
+                android:id="@+id/rb_employee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_selector2"
+                android:button="@android:color/transparent"
+                android:elevation="4dp"
+                android:paddingHorizontal="10dp"
+                android:text="@string/rb_employee"
+                android:textColor="@drawable/radio_textcolor" />
+
+            <RadioButton
+                android:id="@+id/rb_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radio_selector2"
+                android:button="@android:color/transparent"
+                android:elevation="4dp"
+                android:paddingHorizontal="10dp"
+                android:text="Admin"
+                android:textColor="@drawable/radio_textcolor" />
+        </RadioGroup>
+    </LinearLayout>
 </LinearLayout>

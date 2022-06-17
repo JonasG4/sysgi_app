@@ -10,13 +10,11 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,52 +25,47 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.jonasgarcia.sys_gestion_incidentes.adminUI.HomeUsersFragment;
 import com.jonasgarcia.sys_gestion_incidentes.config.Configuration;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddUser extends AppCompatActivity {
-
-    EditText txtName, txtLastname, txtEmail, txtPassword, txtConfirmPassword;
-    TextView txtNameErr, txtLastnameErr, txtEmailErr, txtPasswordErr, txtConfirmPasswordErr;
-    Spinner spRoles;
+public class EditUser extends AppCompatActivity {
     LinearLayout btnBack;
-    Button btnSave;
-    String id_rol = "0";
-    SharedPreferences preferences;
-
+    Button btnUpdate;
     Configuration config = new Configuration();
     String URL = config.urlUsuarios;
-    RadioButton rb_employee, rb_admin;
+    String id_usuario = "0", token = "", id_rol = "0";
+    EditText txtName, txtLastname, txtEmail;
+    TextView txtNameErr, txtLastnameErr, txtEmailErr;
+    SharedPreferences preferences;
     RadioGroup rd_group;
+    RadioButton rb_emplooye, rb_admin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_user);
+        setContentView(R.layout.activity_edit_user);
 
-        txtName = findViewById(R.id.txtAddUser_Name);
-        txtLastname = findViewById(R.id.txtAddUser_Lastname);
-        txtEmail = findViewById(R.id.txtAddUser_Email);
-        txtPassword = findViewById(R.id.txtAddUser_Password);
-        txtConfirmPassword = findViewById(R.id.txtAddUser_ConfirmPassword);
-        btnBack = findViewById(R.id.btnAddUser_Back);
-        btnSave = findViewById(R.id.btnAddUser_Save);
+        btnBack = findViewById(R.id.btnUpdateUser_Back);
+        btnUpdate = findViewById(R.id.btnUpdateUser_Save);
 
-        txtNameErr = findViewById(R.id.txtAddUser_NameError);
-        txtLastnameErr = findViewById(R.id.txtAddUser_LastnameError);
-        txtEmailErr = findViewById(R.id.txtAddUser_EmailError);
-        txtPasswordErr = findViewById(R.id.txtAddUser_PasswordError);
-        txtConfirmPasswordErr = findViewById(R.id.txtAddUser_ConfirmPasswordError);
+        txtName = findViewById(R.id.txtUpdateUser_Name);
+        txtLastname = findViewById(R.id.txtUpdateUser_Lastname);
+        txtEmail = findViewById(R.id.txtUpdateUser_Email);
 
         rd_group = findViewById(R.id.rd_group);
         rb_admin = findViewById(R.id.rb_admin);
-        rb_employee = findViewById(R.id.rb_employee);
+        rb_emplooye = findViewById(R.id.rb_employee);
+
+        txtNameErr = findViewById(R.id.txtUpdateUser_NameError);
+        txtLastnameErr = findViewById(R.id.txtUpdateUser_LastnameError);
+        txtEmailErr = findViewById(R.id.txtUpdateUser_EmailError);
 
         preferences = this.getSharedPreferences("session", MODE_PRIVATE);
 
@@ -85,22 +78,92 @@ public class AddUser extends AppCompatActivity {
             }
         });
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addNewUser();
+                updateUser();
             }
         });
     }
 
-    private void addNewUser() {
-        RequestQueue requestQueue = Volley.newRequestQueue(AddUser.this);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            id_usuario = extras.getString("id_usuario");
+            token = preferences.getString("token", "");
+        }
+        getUserById();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        getUserById();
+    }
+
+    public void getUserById() {
+        RequestQueue requestQueue = Volley.newRequestQueue(EditUser.this);
         StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject result = new JSONObject(response);
-                    showToastOK("¡Usuario registrado con exito!");
+                    JSONObject data = result.getJSONObject("result");
+
+                    txtName.setText(data.getString("nombre"));
+                    txtLastname.setText(data.getString("apellido"));
+                    txtEmail.setText(data.getString("email"));
+
+                    if (data.getString("id_rol").equals("1")) {
+                        rd_group.check(rb_emplooye.getId());
+                    } else {
+                        rd_group.check(rb_admin.getId());
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (error == null || error.networkResponse == null) {
+                    return;
+                }
+                String body;
+                //get status code here
+                final String statusCode = String.valueOf(error.networkResponse.statusCode);
+                //get response body and parse with appropriate encoding
+                try {
+                    body = new String(error.networkResponse.data, "UTF-8");
+                    JSONObject data = new JSONObject(body);
+                    showToastErr(data.getString("msg"));
+                } catch (UnsupportedEncodingException | JSONException e) {
+                    showToastErr(e.getMessage());
+                }
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("action", "list_user_id");
+                params.put("id_usuario", id_usuario);
+                return params;
+            }
+        };
+        requestQueue.add(request);
+    }
+
+    public void updateUser() {
+        RequestQueue requestQueue = Volley.newRequestQueue(EditUser.this);
+        StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject result = new JSONObject(response);
+                    showToastOK("Datos actualizados correctamente.");
                     finish();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -112,7 +175,6 @@ public class AddUser extends AppCompatActivity {
                 if (error == null || error.networkResponse == null) {
                     return;
                 }
-
                 String body;
                 //get status code here
                 final String statusCode = String.valueOf(error.networkResponse.statusCode);
@@ -136,44 +198,33 @@ public class AddUser extends AppCompatActivity {
                         setBackgroundError(txtEmail);
                         txtEmailErr.setText(errors.getString("email"));
                     }
-
-                    if (!errors.isNull("password")) {
-                        setBackgroundError(txtPassword);
-                        txtPasswordErr.setText(errors.getString("password"));
-                    }
-
-                    if (!errors.isNull("confirmPassword")) {
-                        setBackgroundError(txtConfirmPassword);
-                        txtConfirmPasswordErr.setText(errors.getString("confirmPassword"));
-                    }
-
                 } catch (UnsupportedEncodingException | JSONException e) {
-                    Toast.makeText(AddUser.this, "Err: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-
+                    showToastErr(e.getMessage());
                 }
             }
         }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", preferences.getString("token", null));
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", token);
                 return headers;
             }
 
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("action", "create");
+                params.put("action", "update");
+                params.put("id_usuario", id_usuario);
                 params.put("nombre", txtName.getText().toString());
                 params.put("apellido", txtLastname.getText().toString());
                 params.put("email", txtEmail.getText().toString());
-                params.put("password", txtPassword.getText().toString());
-                params.put("confirmPassword", txtConfirmPassword.getText().toString());
-                if (rb_employee.isChecked()) {
+
+                if (rb_emplooye.isChecked()) {
                     id_rol = "1";
                 } else {
                     id_rol = "2";
                 }
+
                 params.put("id_rol", id_rol);
                 return params;
             }
@@ -181,9 +232,9 @@ public class AddUser extends AppCompatActivity {
         requestQueue.add(request);
     }
 
-    public void showToastOK(String msg) {
+    public void showToastErr(String msg) {
         LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.custom_toast_ok, (ViewGroup) findViewById(R.id.ll_custom_toast_ok));
+        View view = inflater.inflate(R.layout.custom_toast_err, (ViewGroup) findViewById(R.id.ll_custom_toast_err));
         TextView tvMessage = view.findViewById(R.id.tvMsg);
         tvMessage.setText(msg);
 
@@ -194,9 +245,9 @@ public class AddUser extends AppCompatActivity {
         toastOK.show();
     }
 
-    public void showToastErr(String msg) {
+    public void showToastOK(String msg) {
         LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.custom_toast_err, (ViewGroup) findViewById(R.id.ll_custom_toast_err));
+        View view = inflater.inflate(R.layout.custom_toast_ok, (ViewGroup) findViewById(R.id.ll_custom_toast_ok));
         TextView tvMessage = view.findViewById(R.id.tvMsg);
         tvMessage.setText(msg);
 
@@ -234,12 +285,9 @@ public class AddUser extends AppCompatActivity {
 
     }
 
-
     public void resetInputBackground(){
-       setBackgroundNormal(txtName, txtNameErr);
-       setBackgroundNormal(txtLastname, txtLastnameErr);
-       setBackgroundNormal(txtEmail, txtEmailErr);
-       setBackgroundNormal(txtPassword, txtPasswordErr);
-       setBackgroundNormal(txtConfirmPassword, txtConfirmPasswordErr);
+        setBackgroundNormal(txtName, txtNameErr);
+        setBackgroundNormal(txtLastname, txtLastnameErr);
+        setBackgroundNormal(txtEmail, txtEmailErr);
     }
 }

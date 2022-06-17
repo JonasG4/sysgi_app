@@ -82,13 +82,22 @@
                     app:iconTint="@color/sky_500" />
             </RelativeLayout>
         </LinearLayout>
-
+        <TextView
+            android:id="@+id/tv_CountUsers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/slate_400"
+            android:text="0 usuarios"
+            android:fontFamily="@font/roboto_regular"
+            />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_users"
-            android:padding="20dp"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="50dp"
             />
     </LinearLayout>
 

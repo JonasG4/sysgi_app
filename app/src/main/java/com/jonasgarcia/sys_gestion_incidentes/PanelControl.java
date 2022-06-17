@@ -13,16 +13,14 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.jonasgarcia.sys_gestion_incidentes.adminUI.DashboardFragment;
-import com.jonasgarcia.sys_gestion_incidentes.adminUI.HomeIncidents;
+import com.jonasgarcia.sys_gestion_incidentes.adminUI.HomeIncidentsFragment;
 import com.jonasgarcia.sys_gestion_incidentes.adminUI.HomeUsersFragment;
-import com.jonasgarcia.sys_gestion_incidentes.employeeIU.HomeFragment;
 import com.jonasgarcia.sys_gestion_incidentes.employeeIU.ProfileFragment;
 
 public class PanelControl extends AppCompatActivity {
@@ -34,7 +32,7 @@ public class PanelControl extends AppCompatActivity {
     //    Fragments
     DashboardFragment dashboardFragment = new DashboardFragment();
     ProfileFragment profileFragment = new ProfileFragment();
-    HomeIncidents homeIncidents = new HomeIncidents();
+    HomeIncidentsFragment homeIncidentsFragment = new HomeIncidentsFragment();
     HomeUsersFragment homeUsersFragment = new HomeUsersFragment();
 
     //    Dialogs
@@ -123,7 +121,7 @@ public class PanelControl extends AppCompatActivity {
         bottomSheetView.findViewById(R.id.btnModuleIncidents).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadFragment(homeIncidents);
+                loadFragment(homeIncidentsFragment);
                 bottomSheetDialog.dismiss();
             }
         });

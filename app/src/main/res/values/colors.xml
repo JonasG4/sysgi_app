@@ -123,4 +123,16 @@
     <color name="green_700">#15803d</color>
     <color name="green_800">#166534</color>
     <color name="green_900">#14532d</color>
+
+    <!--    AMBER   -->
+    <color name="amber_50">#fffbeb</color>
+    <color name="amber_100">#fef3c7</color>
+    <color name="amber_200">#fde68a</color>
+    <color name="amber_300">#fcd34d</color>
+    <color name="amber_400">#fbbf24</color>
+    <color name="amber_500">#f59e0b</color>
+    <color name="amber_600">#d97706</color>
+    <color name="amber_700">#b45309</color>
+    <color name="amber_800">#92400e</color>
+    <color name="amber_900">#78350f</color>
 </resources>
