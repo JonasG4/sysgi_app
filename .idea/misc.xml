@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Josuedev/Documents/AndroidParcial/sysgi_app/app/src/main/res/layout/activity_add_user.xml" value="0.2609375" />
+        <entry key="..\:/Users/Josuedev/Documents/AndroidParcial/sysgi_app/app/src/main/res/layout/activity_change_password.xml" value="0.2609375" />
         <entry key="..\:/Users/Josuedev/Documents/AndroidParcial/sysgi_app/app/src/main/res/layout/activity_detail_incident.xml" value="0.2609375" />
         <entry key="..\:/Users/Josuedev/Documents/AndroidParcial/sysgi_app/app/src/main/res/layout/activity_detail_incident_employee.xml" value="0.2609375" />
         <entry key="..\:/Users/Josuedev/Documents/AndroidParcial/sysgi_app/app/src/main/res/layout/activity_details_user.xml" value="0.2609375" />
