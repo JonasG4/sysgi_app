@@ -1,16 +1,24 @@
 package com.jonasgarcia.sys_gestion_incidentes.adminUI;
 
+import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -32,6 +40,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Table;
 import com.jonasgarcia.sys_gestion_incidentes.AddUser;
 import com.jonasgarcia.sys_gestion_incidentes.R;
 import com.jonasgarcia.sys_gestion_incidentes.adapters.UserListAdapter;
@@ -43,7 +56,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.UnsupportedEncodingException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -63,11 +81,16 @@ public class HomeUsersFragment extends Fragment {
     DialogLoading dialogLoading;
     SharedPreferences preferences;
 
+    private String PDF_Directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/reportes";
+    private boolean hasPermission = false;
+    private static final int permissionKey = 1;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferences = this.getActivity().getSharedPreferences("session", Context.MODE_PRIVATE);
         dialogLoading = new DialogLoading(getContext());
+        requestPermissionStorage();
     }
 
     @Override
@@ -149,7 +172,12 @@ public class HomeUsersFragment extends Fragment {
         bottomCreateUsersView.findViewById(R.id.btnModalCreateReport).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-           }
+                try {
+                    generarPDF();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
         });
 
         bottomCreateDialog.setContentView(bottomCreateUsersView);
@@ -237,7 +265,7 @@ public class HomeUsersFragment extends Fragment {
                                 Intent window = new Intent(getContext(), DetailsUser.class);
                                 window.putExtra("id_usuario", item.getId_user());
                                 startActivity(window);
-                            }else{
+                            } else {
                                 showToastOK("Esta es tu cuenta de usuario.");
                             }
                         }
@@ -312,7 +340,7 @@ public class HomeUsersFragment extends Fragment {
                                 Intent window = new Intent(getContext(), DetailsUser.class);
                                 window.putExtra("id_usuario", item.getId_user());
                                 startActivity(window);
-                            }else{
+                            } else {
                                 showToastOK("Esta es tu cuenta de usuario.");
                             }
                         }
@@ -396,7 +424,7 @@ public class HomeUsersFragment extends Fragment {
                                 Intent window = new Intent(getContext(), DetailsUser.class);
                                 window.putExtra("id_usuario", item.getId_user());
                                 startActivity(window);
-                            }else{
+                            } else {
                                 showToastOK("Esta es tu cuenta de usuario.");
                             }
                         }
@@ -453,7 +481,7 @@ public class HomeUsersFragment extends Fragment {
         requestQueue.add(request);
     }
 
-    public void showToastOK(String msg){
+    public void showToastOK(String msg) {
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.custom_toast_ok, (ViewGroup) getView().findViewById(R.id.ll_custom_toast_ok));
         TextView tvMessage = view.findViewById(R.id.tvMsg);
@@ -466,7 +494,124 @@ public class HomeUsersFragment extends Fragment {
         toastOK.show();
     }
 
+    public void showToastErr(String msg) {
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.custom_toast_err, (ViewGroup) getView().findViewById(R.id.ll_custom_toast_err));
+        TextView tvMessage = view.findViewById(R.id.tvMsg);
+        tvMessage.setText(msg);
 
+        Toast toastOK = new Toast(getContext());
+        toastOK.setGravity(Gravity.BOTTOM, 0, 300);
+        toastOK.setDuration(Toast.LENGTH_SHORT);
+        toastOK.setView(view);
+        toastOK.show();
+    }
+
+    private void requestPermissionStorage() {
+        int permissionState = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permissionState == PackageManager.PERMISSION_GRANTED) {
+            permissionGranted();
+        } else {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, permissionKey);
+        }
+    }
+
+    private void permissionGranted() {
+        File carpeta = new File(PDF_Directory);
+        if (!carpeta.exists()) {
+            if (carpeta.mkdir()) {
+                showToastOK("Reporte generado con éxito");
+            }else{
+                showToastErr("No se ha podido generar el reporte. Intentelo de nuevo.");
+            }
+        }
+        hasPermission = true;
+    }
+
+    private void permissionDenied() {
+        showToastErr("Es necesario el permiso para crear reportes.");
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        switch (requestCode) {
+            case permissionKey:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    permissionGranted();
+                } else {
+                    permissionDenied();
+                }
+                break;
+        }
+    }
+
+    public void generarPDF() throws FileNotFoundException {
+        try {
+        permissionGranted();
+        DateTimeFormatter dff = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+        String nombreArchivo = "reporte_usuario" + dff.format(LocalDateTime.now()) + ".pdf";
+        File archivo = new File(PDF_Directory, nombreArchivo);
+
+        PdfWriter pdfEscrito = new PdfWriter(archivo);
+        PdfDocument pdfDocumento = new PdfDocument(pdfEscrito);
+        Document documento = new Document(pdfDocumento);
+        pdfDocumento.setDefaultPageSize(PageSize.A4);
+
+        float anchoColumna[] = {50f, 300f, 50f, 50f, 100f};
+        Table tabla = new Table(anchoColumna);
+
+        tabla.addCell("#");
+        tabla.addCell("Nombre");
+        tabla.addCell("Apellido");
+        tabla.addCell("Correo electronico");
+        tabla.addCell("Rol de usuario");
+
+        for (int i = 0; i < usuarios.size(); i++) {
+            tabla.addCell(Integer.toString(i+1));
+            tabla.addCell(usuarios.get(i).getNombre());
+            tabla.addCell(usuarios.get(i).getApellido());
+            tabla.addCell(usuarios.get(i).getEmail());
+            if (usuarios.get(i).getRol() == 1) {
+                tabla.addCell("Empleado");
+            } else {
+                tabla.addCell("Administrador");
+            }
+        }
+        documento.add(tabla);
+        documento.close();
+        abrirPDF(archivo, getContext());
+        }catch (FileNotFoundException e){
+                showToastOK("Error: " + e.getMessage());
+        }
+    }
+
+    public void abrirPDF(File archivo, Context context) {
+        try {
+            String s = String.valueOf(archivo);
+            File arch = new File(s);
+
+            if (arch.exists()) {
+                Uri uri = FileProvider.getUriForFile(context,
+                        context.getPackageName() + ".provider", arch);
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(uri, "application/pdf");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+                try {
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(context, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        } catch (Exception err) {
+            Toast.makeText(getContext(), "Error: " + err.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
 }
 
 
