@@ -17,7 +17,7 @@
         android:padding="20dp">
 
         <LinearLayout
-            android:id="@+id/btnDetailsIncident_Back"
+            android:id="@+id/btnAddNoteIncident_Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/roboto_bold"
-            android:text="Detalles del Incidente"
+            android:text="Agreagr nota"
             android:textColor="@color/slate_200"
             android:textSize="20sp" />
         <View
@@ -50,70 +50,24 @@
             android:layout_height="4dp"
             android:layout_marginTop="10dp"
             android:background="@color/sky_600" />
-        <ImageView
-            android:id="@+id/imgIncident"
-            android:layout_width="150dp"
+
+
+        <EditText
+            android:id="@+id/addNote"
+            android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:src="@drawable/closet"
-            android:layout_gravity="center"/>
-
-
+            android:textColor="@color/white"
+            android:inputType="text|textMultiLine"
+            android:layout_marginBottom="10dp"
+            android:gravity="top"/>
         <TextView
+            android:id="@+id/errorNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Tipo incidente"
-            android:textColor="@color/slate_400"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/txtIncident"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
-            android:text="[NOMBRE]"
-            android:textColor="@color/slate_200"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Descripción"
-            android:textColor="@color/slate_400"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/txtDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
-            android:text="[DESCRIPCION]"
-            android:textColor="@color/slate_200"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Estado"
-            android:textColor="@color/slate_400"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/txtState"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
-            android:text="[ESTADO]"
-            android:textColor="@color/slate_200"
-            android:textSize="16sp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Acciones"
-            android:textColor="@color/slate_400"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text=""
+            android:textColor="@color/red_500"
             android:textSize="12sp" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -121,7 +75,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnIncidentEdit"
+                android:id="@+id/btnAddNote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -131,17 +85,6 @@
                 android:textColor="@color/slate_200"
                 app:icon="@drawable/ic_user_pen_solid"
                 app:iconTint="@color/slate_200" />
-
-            <Button
-                android:id="@+id/btnDeleteIncident"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Eliminar"
-                app:icon="@drawable/ic_user_xmark_solid"
-                app:iconTint="@color/slate_200"
-                android:textColor="@color/slate_200"
-                android:layout_weight="1"
-                android:backgroundTint="@color/red_500"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
