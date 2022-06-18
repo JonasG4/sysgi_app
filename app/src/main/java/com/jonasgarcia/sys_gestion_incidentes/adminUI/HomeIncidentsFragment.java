@@ -108,6 +108,7 @@ public class HomeIncidentsFragment extends Fragment {
                         public void onItemClick(Incidente item) {
                             Intent window = new Intent(getContext(), DetailIncident.class);
                             window.putExtra("id_incidente", item.getId_incidente());
+                            window.putExtra("estado", item.getEstado());
                             startActivity(window);
                         }
                     });

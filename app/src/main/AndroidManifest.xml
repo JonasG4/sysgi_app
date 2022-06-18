@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Sys_gestion_incidentes"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".NoteIncident"
+            android:exported="false" />
+        <activity
             android:name=".EditUser"
             android:exported="false" />
         <activity
